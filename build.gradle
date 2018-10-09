@@ -1,10 +1,21 @@
-plugins {
-    id 'java'
+buildscript {
+    ext {
+        springBootVersion = '1.5.16.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
-group 'com.xiaobo'
-version '1.0-SNAPSHOT'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
 
+group = 'com.bitcoin'
+version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
@@ -12,5 +23,9 @@ repositories {
 }
 
 dependencies {
-
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+/*
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.5'
+*/
 }

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/pb.css"/>
+    <style>
+        body {
+            margin: 30px;
+        }
+
+        #result {
+            font-size: 15px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-group">
+    <label>请输入内容</label>
+    <input type="text" class="form-control" id="inputContent">
+</div>
+
+
+<div class="btn-group btn-group-lg">
+    <button type="button" class="btn btn-default" onclick="addFirstBlock()">添加创世区块</button>
+    <button type="button" class="btn btn-default" onclick="addBlock()">添加交易区块</button>
+    <button type="button" class="btn btn-default" onclick="showBlockChainData()">展示数据</button>
+    <button type="button" class="btn btn-default" onclick="verify()">校验数据</button>
+</div>
+
+<p id="result"></p>
+
+<script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/pb.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jsrsasign-all-min.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+    function addFirstBlock() {
+        var content = $("#inputContent").val()
+        $.post("addFirstBlock", {start: content}, function (data) {
+            if(data.indexOf("创建失败")>0){
+                $("#result").attr("class","bg-success")
+            }else {
+                $("#result").attr("class","bg-danger")
+            }
+            $("#result").html(data)
+        })
+    }
+
+    function addBlock() {
+        var content = $("#inputContent").val()
+        $.post("addBlock", {content: content}, function (data) {
+            if(data.indexOf("创建失败")>0){
+                $("#result").attr("class","bg-danger")
+            }else {
+                $("#result").attr("class","bg-success")
+            }
+            $("#result").html(data)
+        })
+    }
+
+    function showBlockChainData() {
+        $.get("showBlockChainData", function (data) {
+            $("#result").text(data)
+        })
+    }
+
+    function verify() {
+        console.log("verify")
+    }
+</script>
+
+</body>
+</html>
