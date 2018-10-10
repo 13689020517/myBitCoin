@@ -45,9 +45,9 @@ public class blockChain {
         if (list.size() > 0) {
             throw new RuntimeException("已经有了创世区块，不能再添加！");
         }
-        String preHash="0000000000000000000000000000000000000000000000000000000000000000";
-        int proof = mine(firstBlock,preHash);
-        list.add(new block(list.size()+1,firstBlock, HashUtils.sha256(firstBlock+proof+preHash),proof,preHash));
+        String preHash = "0000000000000000000000000000000000000000000000000000000000000000";
+        int proof = mine(firstBlock, preHash);
+        list.add(new block(list.size() + 1, firstBlock, HashUtils.sha256(firstBlock + proof + preHash), proof, preHash));
         save2Disk();
     }
 
@@ -57,9 +57,9 @@ public class blockChain {
         if (list.size() == 0) {
             throw new RuntimeException("本链还没有创世区块，请先创建创世区块！");
         }
-        String preHash = list.get(list.size()-1).hash;
-        int proof = mine(recordItem.getContent(),preHash);
-        list.add(new block(list.size()+1,recordItem.getContent(),HashUtils.sha256(recordItem.getContent()+proof+preHash),proof,preHash));
+        String preHash = list.get(list.size() - 1).hash;
+        int proof = mine(recordItem.getContent(), preHash);
+        list.add(new block(list.size() + 1, recordItem.getContent(), HashUtils.sha256(recordItem.getContent() + proof + preHash), proof, preHash));
         save2Disk();
     }
 
@@ -79,23 +79,23 @@ public class blockChain {
     }
 
     //校验数据是否被篡改
-    public String verify(){
+    public String verify() {
         StringBuilder sb = new StringBuilder();
-        int i =0;
+        int i = 0;
         for (block block : list) {
             String content = block.content;
             int proof = block.proof;
             String preHash = block.preHash;
-            String calculateHash = HashUtils.sha256(content+proof+preHash);
+            String calculateHash = HashUtils.sha256(content + proof + preHash);
             String hash = block.hash;
-            if(!calculateHash.equals(hash)){
-                sb.append("ID为"+block.id+"的区块数据被篡改！<br/>");
+            if (!calculateHash.equals(hash)) {
+                sb.append("ID为" + block.id + "的区块数据被篡改！<br/>");
             }
-            if(i>0){
-                block preBlock = list.get(i-1);
+            if (i > 0) {
+                block preBlock = list.get(i - 1);
                 String preBlockHash = preBlock.hash;
-                if(!preBlockHash.equals(block.preHash)){
-                    sb.append("ID为"+block.id+"的区块数据中的preHash有问题，可能有数据被篡改！<br/>");
+                if (!preBlockHash.equals(block.preHash)) {
+                    sb.append("ID为" + block.id + "的区块数据中的preHash有问题，可能有数据被篡改！<br/>");
                 }
             }
         }
@@ -103,17 +103,26 @@ public class blockChain {
     }
 
     //挖矿算法简易版本，返回值为工作量证明，比特币使用的这套共识算法叫POW，proof of Work
-    private int mine (String content,String preHash){
+    private int mine(String content, String preHash) {
         for (int i = 0; i < Integer.MAX_VALUE; i++) {
-            String hash = HashUtils.sha256(content + i+preHash);
-            if(hash.startsWith("0000")){
+            String hash = HashUtils.sha256(content + i + preHash);
+            if (hash.startsWith("0000")) {
                 System.out.println("挖矿成功");
-               return i;
-            }else {
-                System.out.println("第"+i+"次尝试挖矿");
+                return i;
+            } else {
+                System.out.println("第" + i + "次尝试挖矿");
             }
         }
         throw new RuntimeException("挖矿失败");
+    }
+
+    // 要去做数据的比对,然后判断是否接受对方传递过来的区块链数据
+    // 1.比对长度，长的那条链就是最新版本
+    // 2.数据校验
+    public void checkNewList(List<block> newList) {
+        if (newList.size() > list.size()) {
+            list = (ArrayList<block>) newList;
+        }
     }
 
 }

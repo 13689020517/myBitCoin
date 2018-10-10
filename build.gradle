@@ -25,5 +25,5 @@ repositories {
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
-    compile('org.springframework.boot:spring-boot-devtools')
+    compile "org.java-websocket:Java-WebSocket:1.3.9"
 }

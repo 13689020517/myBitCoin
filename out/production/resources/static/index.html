@@ -69,12 +69,21 @@ hsAUnQIDAQAB</textarea>
     <input type="text" class="form-control" id="inputContent" placeholder="请输入交易金额">
 </div>
 
+<div class="form-group">
+    <input type="text" class="form-control" id="inputNode" placeholder="请输入想连接的节点连接">
+</div>
 
 <div class="btn-group btn-group-lg">
     <button type="button" class="btn btn-default" onclick="addFirstBlock()">添加创世区块</button>
     <button type="button" class="btn btn-default" onclick="addBlock()">添加普通区块</button>
     <button type="button" class="btn btn-default" onclick="clickShowData()">展示数据</button>
     <button type="button" class="btn btn-default" onclick="verify()">校验数据</button>
+</div>
+
+<div class="btn-group btn-group-lg">
+    <button type="button" class="btn btn-default" onclick="regist()">注册节点</button>
+    <button type="button" class="btn btn-default" onclick="conn()">连接</button>
+    <button type="button" class="btn btn-default" onclick="syncData()">同步</button>
 </div>
 
 <p id="result"></p>
@@ -198,6 +207,43 @@ hsAUnQIDAQAB</textarea>
             }
             $("#result").html(data)
         })
+    }
+
+    function regist() {
+        showDialog() // 显示进度条
+        // 1.获取输入的内容
+        var node = $("#inputNode").val();
+        // 2. 发起请求
+        $.post("regist", // 请求路径
+            "port=" + node,// 传递的数据
+            function (data) { // 请求成功的回调函数
+                // 展示操作结果
+                $("#result").html(data)
+                // 清空输入框
+                $("#inputNode").val("");
+                hiddenDialog() // 隐藏进度条
+            });
+    }
+
+    function conn() {
+        showDialog() // 显示进度条
+        $.post("conn", // 请求路径
+            function (data) { // 请求成功的回调函数
+                // 展示操作结果
+                $("#result").html(data)
+                hiddenDialog() // 隐藏进度条
+            });
+    }
+
+    function syncData() {
+        showDialog() // 显示进度条
+        // 2. 发起请求
+        $.post("syncData", // 请求路径
+            function (data) { // 请求成功的回调函数
+                // 展示操作结果
+                $("#result").html(data)
+                hiddenDialog() // 隐藏进度条
+            });
     }
 
     function clearInput() {
