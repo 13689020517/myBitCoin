@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="494b415e-bec5-4d79-adc5-c230326aa591" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bitcoin/bean/transaction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bitcoin/bean/wallet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bitcoin/bean/blockChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bitcoin/bean/blockChain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/record.json" beforeDir="false" afterPath="$PROJECT_DIR$/record.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bitcoin/bean/transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bitcoin/bean/transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bitcoin/controller/operateChainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bitcoin/controller/operateChainController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -71,7 +69,7 @@
           <entry key="css" value="2" />
           <entry key="gradle" value="16" />
           <entry key="html" value="13" />
-          <entry key="java" value="67" />
+          <entry key="java" value="69" />
           <entry key="js" value="2" />
           <entry key="json" value="10" />
           <entry key="pri" value="6" />
@@ -84,7 +82,7 @@
           <entry key="CSS" value="2" />
           <entry key="Groovy" value="16" />
           <entry key="HTML" value="13" />
-          <entry key="JAVA" value="67" />
+          <entry key="JAVA" value="69" />
           <entry key="JSON" value="10" />
           <entry key="JavaScript" value="2" />
           <entry key="PLAIN_TEXT" value="11" />
@@ -96,7 +94,7 @@
           <entry key="dummy" value="13" />
           <entry key="gradle" value="11" />
           <entry key="html" value="1004" />
-          <entry key="java" value="3449" />
+          <entry key="java" value="3464" />
           <entry key="json" value="8" />
         </counts>
       </usages-collector>
@@ -104,7 +102,7 @@
         <counts>
           <entry key="Groovy" value="11" />
           <entry key="HTML" value="1004" />
-          <entry key="JAVA" value="3449" />
+          <entry key="JAVA" value="3464" />
           <entry key="JSON" value="8" />
           <entry key="PLAIN_TEXT" value="13" />
         </counts>
@@ -113,11 +111,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="143" column="36" lean-forward="true" selection-start-line="143" selection-start-column="36" selection-end-line="143" selection-end-column="36" />
+            <state relative-caret-position="133">
+              <caret line="137" column="66" selection-start-line="137" selection-start-column="66" selection-end-line="137" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/bitcoin/mainApp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#232#233#0" expanded="true" />
+                <element signature="e#289#290#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/bitcoin/controller/operateChainController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="34" column="10" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,8 +149,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/bitcoin/bean/transaction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="12" column="23" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="23" />
+            <state relative-caret-position="521">
+              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#350#351#0" expanded="true" />
@@ -145,18 +169,6 @@
                 <element signature="e#847#848#0" expanded="true" />
                 <element signature="e#887#888#0" expanded="true" />
                 <element signature="e#919#920#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/bitcoin/bean/blockChain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="61" column="64" selection-start-line="61" selection-start-column="64" selection-end-line="61" selection-end-column="64" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -610,12 +622,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/bitcoin/utils/RSAUtils.java" />
         <option value="$PROJECT_DIR$/record.json" />
         <option value="$PROJECT_DIR$/src/main/java/com/bitcoin/bean/block.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bitcoin/controller/operateChainController.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/bitcoin/bean/wallet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bitcoin/bean/transaction.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bitcoin/bean/blockChain.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bitcoin/controller/operateChainController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bitcoin/bean/transaction.java" />
       </list>
     </option>
   </component>
@@ -732,7 +744,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539173071670" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539174487638" />
     <property name="last_opened_file_path" value="E:/blockchain_Lottery" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -765,7 +777,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.wallet">
+  <component name="RunManager" selected="Spring Boot.mainApp">
     <configuration name="blockChain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.bitcoin.bean.blockChain" />
       <module name="myBitCoin_main" />
@@ -812,8 +824,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.wallet" />
         <item itemvalue="Spring Boot.mainApp" />
+        <item itemvalue="Application.wallet" />
         <item itemvalue="Application.blockChain" />
       </list>
     </recent_temporary>
@@ -829,18 +841,18 @@
       <option name="presentableId" value="Default" />
       <updated>1539082426086</updated>
       <workItem from="1539082428380" duration="10701000" />
-      <workItem from="1539130428342" duration="34102000" />
+      <workItem from="1539130428342" duration="35430000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44803000" />
+    <option name="totallyTimeSpent" value="46131000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="760" y="0" width="784" height="852" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.38429752" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.38429752" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -851,8 +863,8 @@
       <window_info anchor="bottom" id="Problems" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.25143677" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.32471263" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.25143677" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.6781609" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -860,7 +872,7 @@
       <window_info anchor="bottom" id="Spring" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32902297" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32902297" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="14" />
@@ -906,13 +918,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bitcoin/SpringBootApplication.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bitcoin/mainApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bitcoin/utils/HashUtils.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1001,30 +1006,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bitcoin/controller/operateChainController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="30" column="40" lean-forward="true" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+        <state relative-caret-position="133">
+          <caret line="137" column="66" selection-start-line="137" selection-start-column="66" selection-end-line="137" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bitcoin/bean/blockChain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="55" column="16" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bitcoin/bean/blockChain.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bitcoin/mainApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="61" column="64" selection-start-line="61" selection-start-column="64" selection-end-line="61" selection-end-column="64" />
+        <state relative-caret-position="198">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#232#233#0" expanded="true" />
+            <element signature="e#289#290#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bitcoin/bean/transaction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="12" column="23" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="23" />
+        <state relative-caret-position="521">
+          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#350#351#0" expanded="true" />
@@ -1047,10 +1061,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bitcoin/controller/operateChainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="143" column="36" lean-forward="true" selection-start-line="143" selection-start-column="36" selection-end-line="143" selection-end-column="36" />
+        <state relative-caret-position="400">
+          <caret line="34" column="10" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

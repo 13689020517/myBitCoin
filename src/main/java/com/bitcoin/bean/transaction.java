@@ -57,7 +57,7 @@ public class transaction {
     //验证交易是否合法
     public boolean verify(){
         PublicKey publicKey = RSAUtils.getPublicKeyFromString("RSA", sendAddr);
-        return RSAUtils.verify("SHA256withRSA", publicKey, content, sign);
+        return RSAUtils.verifyDataJS("SHA256withRSA", publicKey, content, sign);
     }
 
 }

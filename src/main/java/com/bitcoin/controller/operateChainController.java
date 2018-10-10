@@ -2,6 +2,7 @@ package com.bitcoin.controller;
 
 import com.bitcoin.bean.block;
 import com.bitcoin.bean.blockChain;
+import com.bitcoin.bean.transaction;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,10 +27,15 @@ public class operateChainController {
 
     @PostMapping("addBlock")
     @ResponseBody
-    public String addBlock(String content) {
+    public String addBlock(transaction tran) {
         try {
-            blockChain.getInstance().addBlock(content);
-            return "添加交易成功！";
+            //电子校验，检查交易数据在传输过程中是否被篡改
+            if(tran.verify()){
+                blockChain.getInstance().addBlock(tran);
+                return "添加交易成功！";
+            }else {
+                return "数据校验失败！您的这笔交易可能被篡改！";
+            }
         } catch (Exception e) {
             return "创建失败，失败原因" + e.getMessage();
         }
