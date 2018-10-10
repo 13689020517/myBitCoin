@@ -20,6 +20,25 @@
 <body>
 
 <div class="form-group">
+    <label>付款方公钥</label>
+    <textarea type="text" class="form-control" id="senderPublickey">
+
+    </textarea>
+</div>
+<div class="form-group">
+    <label>付款方私钥</label>
+    <textarea type="text" class="form-control" id="senderPrivatekey">
+
+    </textarea>
+</div>
+<div class="form-group">
+    <label>收款方公钥</label>
+    <textarea type="text" class="form-control" id="receiverPublickey">
+
+    </textarea>
+</div>
+
+<div class="form-group">
     <input type="text" class="form-control" id="inputContent" placeholder="请输入内容">
 </div>
 
@@ -112,7 +131,7 @@
                 var hash = data[i].hash;
                 var proof = data[i].proof;
                 var preHash = data[i].preHash;
-                $("#tagTbody").append("<tr><td>" + id + "</td><td>" + content + "</td><td>" + hash + "</td><td>" + proof + "</td><td>"+preHash+"</td></tr>")
+                $("#tagTbody").append("<tr><td>" + id + "</td><td>" + content + "</td><td>" + hash + "</td><td>" + proof + "</td><td>" + preHash + "</td></tr>")
             }
             hiddenDialog()
         })
@@ -120,10 +139,10 @@
 
     function verify() {
         showBlockChainData()
-        $.get("verify",function (data) {
-            if(data == "未检测到区块数据被篡改"){
+        $.get("verify", function (data) {
+            if (data == "未检测到区块数据被篡改") {
                 $("#result").attr("class", "bg-success")
-            }else {
+            } else {
                 $("#result").attr("class", "bg-danger")
             }
             $("#result").html(data)

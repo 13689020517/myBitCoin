@@ -53,13 +53,13 @@ public class blockChain {
 
     //添加区块,即本链中一个个的交易区块
     //必须有了创世区块才能添加其他的区块
-    public void addBlock(String recordItem) {
+    public void addBlock(transaction recordItem) {
         if (list.size() == 0) {
             throw new RuntimeException("本链还没有创世区块，请先创建创世区块！");
         }
         String preHash = list.get(list.size()-1).hash;
-        int proof = mine(recordItem,preHash);
-        list.add(new block(list.size()+1,recordItem,HashUtils.sha256(recordItem+proof+preHash),proof,preHash));
+        int proof = mine(recordItem.getContent(),preHash);
+        list.add(new block(list.size()+1,recordItem.getContent(),HashUtils.sha256(recordItem.getContent()+proof+preHash),proof,preHash));
         save2Disk();
     }
 
