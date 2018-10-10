@@ -20,19 +20,35 @@
 <body>
 
 <div class="form-group">
-    <label>请输入内容</label>
-    <input type="text" class="form-control" id="inputContent">
+    <input type="text" class="form-control" id="inputContent" placeholder="请输入内容">
 </div>
 
 
 <div class="btn-group btn-group-lg">
     <button type="button" class="btn btn-default" onclick="addFirstBlock()">添加创世区块</button>
-    <button type="button" class="btn btn-default" onclick="addBlock()">添加交易区块</button>
-    <button type="button" class="btn btn-default" onclick="showBlockChainData()">展示数据</button>
+    <button type="button" class="btn btn-default" onclick="addBlock()">添加普通区块</button>
+    <button type="button" class="btn btn-default" onclick="clickShowData()">展示数据</button>
     <button type="button" class="btn btn-default" onclick="verify()">校验数据</button>
 </div>
 
 <p id="result"></p>
+
+<table class="table">
+
+    <thead>
+    <tr>
+
+        <th>ID</th>
+        <th>内容</th>
+        <th>哈希值</th>
+        <th>工作量证明</th>
+        <th>preHash</th>
+    </tr>
+    </thead>
+    <tbody id="tagTbody">
+
+    </tbody>
+</table>
 
 <script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
@@ -41,38 +57,97 @@
 
 <script type="text/javascript">
     function addFirstBlock() {
+        showDialog()
         var content = $("#inputContent").val()
-        $.post("addFirstBlock", {start: content}, function (data) {
-            if (data.indexOf("创建失败") > 0) {
-                $("#result").attr("class", "bg-success")
-            } else {
-                $("#result").attr("class", "bg-danger")
-            }
-            $("#result").html(data)
-        })
+        if (content == "") {
+            $("#result").attr("class", "bg-warning")
+            $("#result").html("交易内容不能为空!!!")
+        } else {
+            $.post("addFirstBlock", {start: content}, function (data) {
+                if (data.indexOf("创建失败") > 0) {
+                    $("#result").attr("class", "bg-success")
+                } else {
+                    $("#result").attr("class", "bg-danger")
+                }
+                $("#result").html(data)
+            })
+            clearInput()
+            showBlockChainData()
+        }
+        hiddenDialog()
     }
 
     function addBlock() {
         var content = $("#inputContent").val()
-        $.post("addBlock", {content: content}, function (data) {
-            if (data.indexOf("创建失败") > 0) {
-                $("#result").attr("class", "bg-danger")
-            } else {
+        if (content == "") {
+            $("#result").attr("class", "bg-warning")
+            $("#result").html("交易内容不能为空!!!")
+        } else {
+            $.post("addBlock", {content: content}, function (data) {
+                if (data.indexOf("创建失败") > 0) {
+                    $("#result").attr("class", "bg-danger")
+                } else {
+                    $("#result").attr("class", "bg-success")
+                }
+                $("#result").html(data)
+            })
+            clearInput()
+            showBlockChainData()
+        }
+    }
+
+    function clickShowData() {
+        showBlockChainData()
+        $("#result").attr("class", "bg-info")
+        $("#result").html("查询到下列数据")
+    }
+
+    function showBlockChainData() {
+        showDialog()
+        $("#tagTbody").html("")
+        $.get("showBlockChainData", function (data) {
+            for (var i = 0; i < data.length; i++) {
+                var id = data[i].id;
+                var content = data[i].content;
+                var hash = data[i].hash;
+                var proof = data[i].proof;
+                var preHash = data[i].preHash;
+                $("#tagTbody").append("<tr><td>" + id + "</td><td>" + content + "</td><td>" + hash + "</td><td>" + proof + "</td><td>"+preHash+"</td></tr>")
+            }
+            hiddenDialog()
+        })
+    }
+
+    function verify() {
+        showBlockChainData()
+        $.get("verify",function (data) {
+            if(data == "未检测到区块数据被篡改"){
                 $("#result").attr("class", "bg-success")
+            }else {
+                $("#result").attr("class", "bg-danger")
             }
             $("#result").html(data)
         })
     }
 
-    function showBlockChainData() {
-        $.get("showBlockChainData", function (data) {
-            $("#result").text(data)
-        })
+    function clearInput() {
+        $("#inputContent").val("")
     }
 
-    function verify() {
-        console.log("verify")
+    // 显示进度条
+    function showDialog() {
+        loading.baosight.showPageLoadingMsg(false)
     }
+
+    // 隐藏进度条
+    function hiddenDialog() {
+        loading.baosight.hidePageLoadingMsg()
+    }
+
+    $(function () {
+        showBlockChainData()
+    })
+
 </script>
 
 </body>

@@ -1,7 +1,9 @@
 package com.bitcoin.controller;
 
+import com.bitcoin.bean.block;
 import com.bitcoin.bean.blockChain;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -34,13 +36,24 @@ public class operateChainController {
     }
 
     @GetMapping("showBlockChainData")
-    public List<String> showBlockChainData() {
-       return blockChain.getInstance().showBlockChainData();
+    @ResponseBody
+    public List<block> showBlockChainData() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return blockChain.getInstance().showBlockChainData();
     }
 
     @GetMapping("verify")
-    public void verify() {
-
+    @ResponseBody
+    public String verify() {
+        String verify = blockChain.getInstance().verify();
+        if(StringUtils.isEmpty(verify)){
+           return "未检测到区块数据被篡改";
+        }
+        return verify;
     }
 
 }

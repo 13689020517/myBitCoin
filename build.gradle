@@ -25,7 +25,5 @@ repositories {
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
-/*
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.5'
-*/
+    compile('org.springframework.boot:spring-boot-devtools')
 }
